@@ -1,0 +1,21 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page session="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> -->
+<div modal="popupMsg">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" ng-click="closePopup()">&times;</button>
+                <h4 class="modal-title">{{ popupInfo.title }}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{ popupInfo.body }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="closePopup()">{{'取消' | translate}}</button>
+                <button type="button" class="btn btn-primary" ng-click="closePopup()">{{'確定' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
