@@ -6,6 +6,7 @@ import { Http, Response, Headers, RequestOptions, Request, RequestMethod } from 
 import 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { Subject } from "rxjs/Rx";
 
 @Injectable()
 export class AppService {
@@ -41,4 +42,31 @@ export class AppService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
+  // communication with dialog
+  private componentSaySource = new Subject<any>();
+  private dialogSaySource = new Subject<any>();
+  //listen
+  componentSaid$ = this.componentSaySource.asObservable();
+  dialogSaid$ = this.dialogSaySource.asObservable();
+  //say
+  componentSay(message: any) {
+    this.componentSaySource.next(message);
+  }
+  dialogSay(message: any) {
+    this.dialogSaySource.next(message);
+  }
+  
+  showPopup(title: string, content: string, btnYN: boolean, yesFun: string, noFun: string, choose: string) {
+		var dialog = {
+			title: title,
+			content: content,
+			btnYN: btnYN,
+			access: {
+				yes: yesFun,
+				no: noFun,
+				choose: choose
+			}
+		};
+		this.componentSay(dialog);
+  };
 }

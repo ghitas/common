@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Http, Response, Headers, RequestOptions, Request, RequestMethod } from '@angular/http';,
+import { Http, Response, Headers, RequestOptions, Request, RequestMethod } from '@angular/http';
 import { Jsonp } from '@angular/http';
 import { AppService } from "./app.service";
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from "rxjs/Subscription";
 import 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-declare var jquery: any;
-declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -16,21 +15,35 @@ declare var $: any;
   styleUrls: ['./app.component.css']
 })
 @Injectable()
-export class AppComponent implements OnInit {
+export class AppComponent implements OnDestroy {
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
   objectKeys = Object.keys;
   url: string;
   params: string;
   route: string;
+  subs = new Subscription;
+  resMess: any;
+  teoinit():void{
+    debugger;
+    document.getElementById("lined")[0].linedtextarea(
+      { selectedLine: 1 }
+    );
+  };
   constructor(
     private http: Http,
     private service: AppService,
     private _jsonp: Jsonp
-  ) { }
-  ngOnInit(): void {
+  ) {
     if (window.location.href.indexOf("code=") > 0) {
       var token = window.location.href.split("code=")[1];
       this.createList(token);
     }
+    this.subs = this.service.dialogSaid$.subscribe(mess => {
+      this.resMess = mess;
+      console.log(mess);
+    });
   }
   Oauth2(): void {
     var OAUTHURL = 'https://accounts.google.com/o/oauth2/auth?';

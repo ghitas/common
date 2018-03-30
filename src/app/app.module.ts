@@ -13,6 +13,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthguardGuard } from "./authguard.guard";
+import { ModalAnnouceComponent } from './modal-annouce/modal-annouce.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   {
@@ -32,14 +34,16 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooderComponent,
     LoginFormComponent,
-    DashboardComponent
+    DashboardComponent,
+    ModalAnnouceComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpModule,
     JsonpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   providers: [AppService, UserService, AuthguardGuard],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-fooder></app-fooder>
+  <app-modal-annouce></app-modal-annouce>
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -23,6 +24,62 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+<div class="linedwrap" style="width:387.297px"><div class="lines" style="width: 50px; height: 174px;"><div class="codelines"><div class="lineno lineselect">1</div><div class="lineno">2</div><div class="lineno">3</div><div class="lineno">4</div><div class="lineno">5</div><div class="lineno">6</div><div class="lineno">7</div><div class="lineno">8</div><div class="lineno">9</div><div class="lineno">10</div><div class="lineno">11</div><div class="lineno">12</div></div></div><div class="linedtextarea"><textarea onkeyup="limitTextarea(this,100,11)" class="lined form-control" id="video-ids" placeholder="Chọn chèn ở trên và dán ID vào đây" disabled="" wrap="off" style="resize: none; width: 330.531px;">34QPZv8CuMk
+BYJMwGw_yKs
+NvLzoHPRfvo
+HKZke-jFs-M
+aD9sZIjU-uk
+</textarea></div></div>
+<h1>JQuery LinedTextArea Demo</h1>
+
+<p>Add a scrollable lined area to a standard TextArea control.</p>
+
+<textarea id="lined" rows="10" cols="60">JavaScript was originally developed by Brendan 
+Eich of Netscape under the name Mocha, 
+which was later renamed to LiveScript, 
+and finally to JavaScript. 
+
+The change of name from LiveScript to JavaScript roughly 
+coincided with Netscape adding support for 
+Java technology in its Netscape Navigator 
+web browser. 
+
+JavaScript was first introduced 
+and deployed in the Netscape browser version 
+2.0B3 in December 1995. 
+
+The naming has caused confusion, giving the 
+impression that the language is a spin-off of Java, 
+and it has been characterized by many as a 
+marketing ploy by Netscape to give JavaScript the 
+cachet of what was then the hot new web-programming language.
+</textarea>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- <ul>
   <div *ngFor="let key of objectKeys(user)">{{key + ' : ' + user[key]}}</div>
 </ul> -->
