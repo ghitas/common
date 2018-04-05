@@ -1,51 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
-
-import { AppComponent } from './app.component';
-import { AppService } from './app.service';
-import { UserService } from './user.service';
-import { JsonpModule } from '@angular/http';
-import { HeaderComponent } from './header/header.component';
-import { FooderComponent } from './fooder/fooder.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthguardGuard } from "./authguard.guard";
-import { ModalAnnouceComponent } from './modal-annouce/modal-annouce.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: LoginFormComponent
-  },
-  {
-    path: 'dashboard',
-    canActivate: [AuthguardGuard],
-    component: DashboardComponent
-  }
-]
+import { NgModule }       from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
+import { AppComponent }         from './app.component';
+import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
+import { LeftContentComponent } from './components/left-content/left-content.component';
+import { RightContentComponent } from './components/right-content/right-content.component';
+import { MainContentComponent } from './components/main-content/main-content.component';
+import { Http, HttpModule } from '@angular/http';
+import { PlayListService } from './services/playlist.service';
+import { EventService } from './services/event.service';
+import { PlaceholderDirective } from './directives/place-holder.directive';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooderComponent,
-    LoginFormComponent,
-    DashboardComponent,
-    ModalAnnouceComponent
-  ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    HttpModule,
-    JsonpModule,
-    RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [AppService, UserService, AuthguardGuard],
-  bootstrap: [AppComponent]
+
+  declarations: [
+    // Components
+    AppComponent, ToolBarComponent, 
+    MainContentComponent, LeftContentComponent, 
+    RightContentComponent, LoginComponent,
+
+    // Directives
+    PlaceholderDirective
+  ],
+
+  bootstrap: [ AppComponent ],
+
+  providers: [ PlayListService, EventService] ,
 })
 export class AppModule { }

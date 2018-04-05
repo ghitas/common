@@ -1,0 +1,12 @@
+#login {
+    padding: 20px 0;
+}
+#login {
+    width: 320px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+.login * {
+    margin: 0;
+    padding: 0;
+}

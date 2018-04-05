@@ -1,0 +1,35 @@
+.card-header{
+    padding: .25rem 1.25rem;
+    margin-bottom: 0;
+    color: white;
+    font-weight: bold;
+    background-color: #8490b1;
+}
+.card-body div > select{
+    color: #495057;
+    border-radius: 0.25em;
+}
+.card-body .form-control{
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    text-align: center;
+    padding: 0px;
+    display: inline;
+    width:15%;
+}
+.card-body{
+    padding: 0.75em;
+}
+.card-body textarea{
+    color: #404040;
+}
+.border > .linewrap{
+    width:100%;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
